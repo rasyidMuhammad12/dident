@@ -1,0 +1,35 @@
+{
+  "canisters": {
+    "dident_backend": {
+      "main": "src/dident_backend/main.mo",
+      "type": "motoko"
+    },
+    "dident_frontend": {
+      "dependencies": [
+        "dident_backend"
+      ],
+      "source": [
+        "src/dident_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "dident_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1,
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"]
+    }
+  }
+}
